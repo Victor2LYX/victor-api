@@ -2,11 +2,11 @@
  * @Author: liyaxing 
  * @Date: 2019-06-11 15:26:56 
  * @Last Modified by: liyaxing
- * @Last Modified time: 2019-06-11 16:09:35
+ * @Last Modified time: 2019-06-13 14:40:55
  */
 //后续有需要再添加对应功能
 
-const CONFIG_GLOBAL = require('./config/config.global');
+const CONFIG_GLOBAL = require('./utils/config.global');
 const bodyParser = require('body-parser');
 require('body-parser-xml')(bodyParser);
 
@@ -22,7 +22,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-app.set('port', CONFIG_GLOBAL.port || 3000);
+// app.set('port', CONFIG_GLOBAL.port || 3000);
 //解决浏览器跨域访问问题，cors()可选obj类型参数，需要根据W3C标准设置Header
 app.use(cors());
 
@@ -77,7 +77,7 @@ app.use(CONFIG_GLOBAL.apiRouteRoot + '/payResponse', require("./routes/payRespon
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use(CONFIG_GLOBAL.apiRouteRoot +'/mp_config',require('./routes/mpConfig'))
+app.use(CONFIG_GLOBAL.apiRouteRoot +'/mpConfig',require('./routes/mpConfig'))
 app.use(CONFIG_GLOBAL.apiRouteRoot +'/payResponse',require('./routes/payResponse'))
 
 // catch 404 and forward to error handler

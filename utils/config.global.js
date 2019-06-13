@@ -1,4 +1,12 @@
+/*
+ * @Author: liyaxing 
+ * @Date: 2019-06-13 10:24:12 
+ * @Last Modified by: liyaxing
+ * @Last Modified time: 2019-06-13 16:28:04
+ */
+
 const os = require('os')
+//全局常量，禁止其它地方再次生成常量，必须引用此处的envProd定义！！！
 const envProd = (os.platform() === 'linux')
 // const host = envProd ? 'https://cancerbook.genomics.cn' : 'localhost'
 
@@ -9,19 +17,21 @@ const CONFIG_GLOBAL_DEFAULT = {
 
 //开发环境配置
 const CONFIG_GLOBAL_DEV = {
-    CONFIG_GLOBAL_DEFAULT,
-    port: '3000',
-    apiRouteRoot: '/dev',
+    envProd,
+    config_global_default:CONFIG_GLOBAL_DEFAULT,
+    port: 3000,
+    apiRouteRoot: '/nodeApi',
     baseUrl: 'http://localhost:3000/dev',
-    mongodbUrl: 'mongodb://lyx:lyx12345@localhost:27017/icarbonx',
+    mongodbUrl: 'mongodb://icarbonx:icarBonxlyx@localhost:27017/icarbonx',
 
 }
 
 //生产环境配置
 const CONFIG_GLOBAL_PROD = {
-    CONFIG_GLOBAL_DEFAULT,
-    port: '3000',
-    apiRouteRoot: '/prod',
+    envProd,
+    config_global_default:CONFIG_GLOBAL_DEFAULT,
+    port: 3000,
+    apiRouteRoot: '/nodeApi',
     baseUrl: 'https://cancerbook.genomics.cn/prod',
     mongodbUrl: "mongodb://ccp:gen0mics.ccp@localhost:27017/ccp",
 
