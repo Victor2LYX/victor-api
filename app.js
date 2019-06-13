@@ -2,7 +2,7 @@
  * @Author: liyaxing 
  * @Date: 2019-06-11 15:26:56 
  * @Last Modified by: liyaxing
- * @Last Modified time: 2019-06-13 14:40:55
+ * @Last Modified time: 2019-06-13 17:22:08
  */
 //后续有需要再添加对应功能
 
@@ -17,9 +17,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 var app = express();
 // app.set('port', CONFIG_GLOBAL.port || 3000);
@@ -75,8 +72,8 @@ app.use(CONFIG_GLOBAL.apiRouteRoot + '/payResponse', require("./routes/payRespon
 //   }
 // });
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/users'));
 app.use(CONFIG_GLOBAL.apiRouteRoot +'/mpConfig',require('./routes/mpConfig'))
 app.use(CONFIG_GLOBAL.apiRouteRoot +'/payResponse',require('./routes/payResponse'))
 

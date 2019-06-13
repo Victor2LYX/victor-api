@@ -1,13 +1,16 @@
-
+/*
+ * @Author: liyaxing 
+ * @Date: 2019-06-13 17:20:26 
+ * @Last Modified by:   liyaxing 
+ * @Last Modified time: 2019-06-13 17:20:26 
+ */
 const express = require('express')
 const { getParams, checkSign } = require('../utils/baseUtil')
-
 
 const router = express.Router()
 const mc = require('mongodb').MongoClient
 
 const url = require('../utils/config.global').mongodbUrl
-
 
 /*获取配置通用接口(只通过入参name)
  * */
