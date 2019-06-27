@@ -1,11 +1,12 @@
+
+
 /*
  * @Author: liyaxing 
  * @Date: 2019-06-11 15:26:56 
  * @Last Modified by: liyaxing
  * @Last Modified time: 2019-06-13 17:22:08
+ * 后续有需要再添加对应功能
  */
-//后续有需要再添加对应功能
-
 const CONFIG_GLOBAL = require('./utils/config.global');
 const bodyParser = require('body-parser');
 require('body-parser-xml')(bodyParser);
